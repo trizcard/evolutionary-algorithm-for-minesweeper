@@ -1,4 +1,5 @@
 import random
+import tkinter as tk
 
 class Minesweeper:
     def __init__(self, size, num_mines):
@@ -6,6 +7,8 @@ class Minesweeper:
         self.num_mines = num_mines
         self.board = self.create_board()
         self.place_mines()
+        self.opened = [[False for _ in range(size)] for _ in range(size)]  # Rastrear células abertas
+
 
     def create_board(self):
         return [[0 for _ in range(self.size)] for _ in range(self.size)]
@@ -28,8 +31,9 @@ class Minesweeper:
                     self.board[ny][nx] += 1
 
     def open_cell(self, x, y):
-        if self.board[y][x] == 'M':
+        if self.board[y][x] == 'M' or self.opened[y][x]:
             return False
+        self.opened[y][x] = True
         return True
 
     def is_solved(self):
@@ -55,6 +59,11 @@ class Minesweeper:
         return score
 
     def render(self):
-        for row in self.board:
-            print(' '.join(str(cell) for cell in row))
+        for y in range(self.size):
+            for x in range(self.size):
+                if self.opened[y][x]:
+                    print(self.board[y][x], end=' ')
+                else:
+                    print('X', end=' ')  # X representa uma célula fechada
+            print()
         print()
