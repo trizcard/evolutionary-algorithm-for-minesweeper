@@ -18,10 +18,7 @@ class Population:
     def generate_new_generation(self, num_best, mutation_rate):
         """ Gera uma nova geração a partir dos melhores indivíduos. """
         best_individuals = self.select_best(num_best)
-        new_generation = []
-        
-        # Mantém os melhores indivíduos
-        new_generation.extend(best_individuals)
+        new_generation = best_individuals[:1]  # Mantém o melhor indivíduo
         
         # Cria novos indivíduos por mutação dos melhores
         while len(new_generation) < len(self.individuals):
