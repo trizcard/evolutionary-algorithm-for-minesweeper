@@ -46,7 +46,7 @@ Este projeto aplica algoritmos genéticos da seguinte maneira:
 - **Seleção**: Os indivíduos com melhor desempenho são selecionados para reprodução. (Fitness-Based Selection)
 - **Mutação**: Pequenas mutações aleatórias são introduzidas para manter a diversidade genética. (Random Mutation)
 - **Nova Geração**: Uma nova geração de indivíduos é criada a partir dos melhores da geração atual, com a introdução de mutações.(Reproduction with Elitism)
-- **Crossover**:
+- **Crossover**: Dois genomas pais são combinados para criar descendentes (One-point crossover).
 
 ## Configurações
 

@@ -25,17 +25,17 @@ class Population:
     def generate_new_generation(self, num_best, mutation_rate):
         best_individuals = self.select_best(num_best)
         new_generation = best_individuals[:1]  # Mantém o melhor indivíduo
-        
-        # Cria novos indivíduos por mutação dos melhores
+
+        # Cria novos indivíduos por crossover e mutação dos melhores
         while len(new_generation) < len(self.individuals):
-            # Escolhe um pai aleatoriamente entre os melhores
-            parent = random.choice(best_individuals)
-            # Cria um novo indivíduo (filho) e aplica mutação
-            child = Individual(len(parent.genome), parent.board_size)
-            child.genome = parent.genome[:]
+            # Escolhe dois pais aleatoriamente entre os melhores
+            parent1, parent2 = random.sample(best_individuals, 2)
+            # Realiza o crossover para criar um filho
+            child = parent1.crossover(parent2)
+            # Aplica mutação ao filho
             child.mutate(mutation_rate)
             # Adiciona o novo indivíduo à nova geração
             new_generation.append(child)
-            
+
         # Atualiza a população com a nova geração
         self.individuals = new_generation

@@ -2,7 +2,7 @@
 #Import dos demais arquivos
 from evolutionary_algorithm import EvolutionaryAlgorithm
 import config
-import utils
+import solver
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 
     # Exibe a melhor solução encontrada
     best_solution = ea.get_best_solution()
-    utils.create_solver_file(best_solution)
+    solver.create_solver_file(best_solution)
     print("Melhor solução encontrada:")
     print(best_solution.genome)
     print(f"Aptidão: {best_solution.fitness}")

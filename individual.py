@@ -37,3 +37,18 @@ class Individual:
                 # Gera uma nova jogada aleatória e substitui no genoma
                 self.genome[i] = (random.randint(0, self.board_size - 1), random.randint(0, self.board_size - 1))
 
+    
+    #Realiza o crossover de um ponto com outro indivíduo.           
+    def crossover(self, other):
+        # Escolhe um ponto aleatório para o crossover
+        crossover_point = random.randint(1, len(self.genome) - 1)
+        # Combina a parte do genoma antes do ponto de crossover do primeiro pai com a parte do genoma após o ponto de crossover do segundo pai
+        child_genome = self.genome[:crossover_point] + other.genome[crossover_point:]
+
+        # Retorna um novo indivíduo criado a partir do genoma combinado
+        child = Individual(len(child_genome), self.board_size)
+        child.genome = child_genome
+        return child
+    
+
+        
