@@ -11,7 +11,11 @@ class Population:
 
     # Método para avaliar a aptidão de todos os indivíduos na população
     def evaluate_fitness(self, minesweeper):
+        i = 0
         for individual in self.individuals:
+            if i == 0:
+                i+=1
+                continue
             # Calcula a aptidão de cada indivíduo
             individual.calculate_fitness(minesweeper)
 
@@ -35,7 +39,7 @@ class Population:
             # Aplica mutação ao filho
             child.mutate(mutation_rate)
             # Adiciona o novo indivíduo à nova geração
-            new_generation.append(child)
+            new_generation += [child]
 
         # Atualiza a população com a nova geração
         self.individuals = new_generation

@@ -22,10 +22,6 @@ def main():
     # Exibe a melhor solução encontrada
     best_solution = ea.get_best_solution()
     solver.create_solver_file(best_solution)
-    print("Melhor solução encontrada:")
-    print(best_solution.genome)
-    print(f"Aptidão: {best_solution.fitness}")
-
 
 # Verifica se este é o script principal sendo executado
 if __name__ == "__main__":

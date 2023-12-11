@@ -19,7 +19,7 @@ class EvolutionaryAlgorithm:
             self.population.evaluate_fitness(self.minesweeper)   # Avalia a aptidão da população atual
             self.population.generate_new_generation(num_best, mutation_rate) # Gera uma nova geração a partir dos melhores indivíduos e taxa de mutação
             self.generation += 1  # Incrementa o contador de gerações
-            print(f"Geração {self.generation}: Melhor aptidão = {self.population.individuals[0].fitness}") # Imprime a aptidão do melhor indivíduo da geração atual
+            print(f"{self.generation}, {self.population.individuals[0].fitness}") # Imprime a aptidão do melhor indivíduo da geração atual
 
     # Método para obter a melhor solução da população atual
     def get_best_solution(self):
