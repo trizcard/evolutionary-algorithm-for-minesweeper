@@ -50,7 +50,7 @@ Este projeto aplica algoritmos genéticos da seguinte maneira:
 
 ## Configurações
 
-É possível mudar as configurações do Campo Minado em **config.py**, vendo o que acontece com o agorítimo evolutivo ao modificar cada parâmetro.
+É possível mudar as configurações do Campo Minado em **config.py**, vendo o que acontece com o algoritmo evolutivo ao modificar cada parâmetro.
 
 ## Contribuições
 
